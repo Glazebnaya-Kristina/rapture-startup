@@ -1,0 +1,18 @@
+.paragraph {
+  $block-name: &; // #{$block-name}__element
+
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  color: #222328;
+  letter-spacing: 0.5px;
+
+  &--white{
+    color: $white;
+  }
+
+  &--center{
+    text-align: center;
+  }
+}

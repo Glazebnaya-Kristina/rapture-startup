@@ -1,0 +1,124 @@
+// В этом файле должны быть стили для БЭМ-блока test, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+
+@import "../../libraries/variables";
+@import "../../libraries/mixins";
+
+.сomponents {
+  $block-name:                &; // #{$block-name}__element
+
+  @include row( xs, 1, equal );
+  @include row ( sm, 2 );
+  @include row ( md, 2 );
+  @include row ( lg, 12 );
+  @include row ( xl, 12 );
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin: 0 auto;
+
+  @media ( min-width: $screen-md ){
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  @media ( min-width: $screen-xl ){
+    padding-top: 115px;
+    padding-bottom: 155px;
+  }
+
+  &__title {
+    @include col( xs, 1, -1 );
+  }
+
+  &__paragraph{
+    @include col( xs, 1, -1 );
+    @include col ( xl, 2, 12 );
+    margin-top: 30px;
+    text-align: center;
+    @media ( min-width: $screen-md ){
+      margin-top: 40px;
+    }
+  }
+
+  &__list {
+    @include col ( xs, 1, -1 );
+    @include col ( xl, 2, 12 );
+    @include row( xs, 1, equal, 30px, false );
+    @include row( md, 2, equal, 30px, false );
+    @include row( lg, 12, equal, 30px, false );
+    grid-row-gap: 40px;
+    margin-top: 50px;
+
+    @media ( min-width: $screen-md ){
+      margin-top: 75px;
+    }
+  }
+
+  &__item{
+    max-width: 420px;
+    justify-self: center;
+    border: 1px solid rgba(#141414, .1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: $transition-time;
+
+    &:hover{
+      box-shadow: 0 50px 105px -30px rgba(#141414, .4);
+    }
+
+    @media ( min-width: $screen-lg ){
+      max-width: 100%;
+    }
+  }
+
+  &__img{
+    max-height: 290px;
+  }
+
+  &__wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10px 30px 10px;
+    @media ( min-width: $screen-sm ){
+      padding: 0 30px 30px 30px;
+    }
+    @media ( min-width: $screen-lg ){
+      padding: 0 70px 55px 70px;
+    }
+  }
+
+  &__item-title{
+    display: block;
+    margin-top: 25px;
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+    color: #222328;
+    @media ( min-width: $screen-lg ){
+      margin-top: 50px;
+      font-size: 22px;
+    }
+  }
+
+  &__text{
+    margin-top: 20px;
+    text-align: center;
+    @media ( min-width: $screen-lg ){
+      margin-top: 30px;
+    }
+  }
+
+  &__button{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 25px;
+    @media ( min-width: $screen-lg ){
+      margin-top: 35px;
+    }
+  }
+
+  &__button-order{
+    margin-top: 53px;
+  }
+}

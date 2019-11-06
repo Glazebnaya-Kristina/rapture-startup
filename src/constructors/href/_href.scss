@@ -1,0 +1,21 @@
+// В этом файле должны быть стили для БЭМ-блока href, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+
+@import "../../libraries/variables";
+@import "../../libraries/mixins";
+
+.href {
+  $block-name: &; // #{$block-name}__element
+
+
+  display: block;
+  text-decoration: none;
+
+  &--opacity{
+    opacity: .3;
+    &:hover,
+    &:focus{
+      opacity: 1;
+    }
+  }
+}

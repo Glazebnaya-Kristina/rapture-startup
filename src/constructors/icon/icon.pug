@@ -1,0 +1,39 @@
+//- Все примеси в этом файле должны начинаться c имени блока ( icon )
+
+mixin icon( iconName, width, height, hasClass, mods )
+
+  //- Принимает:
+      iconName  {string} - имя иконки
+      width     {integer} - ширина
+      height    {integer} - высота
+      hasClass  {string} - если false, то отключаем класс
+      mods      {string} - всплывающая подсказка
+
+  //- Вызов:
+      +icon( "phone", 20, 20, false, "big" )
+
+  -
+    var className = 'icon'
+    var errorMessage = "Не указан аргумент iconName";
+
+    // список модификаторов
+    var allMods = '';
+    if(typeof mods !== 'undefined' && mods) {
+      var modsList = mods.split( ',' );
+      for ( var i = 0; i < modsList.length; i++ ) {
+        allMods = allMods + ' ' + className + '--' + modsList[i].trim();
+      }
+    }
+
+  if ( hasClass )
+    if (typeof iconName !== 'undefined' && iconName !== '' && iconName)
+      svg( width=width, height=height, viewBox='0 0 ' + width + ' ' + height )
+        use( xlink:href=setting.iconSrc + 'sprite.svg#icon-' + iconName )
+    else
+      p.error=errorMessage
+  else
+    if (typeof iconName !== 'undefined' && iconName !== '' && iconName)
+      svg( width=width, height=height, viewBox='0 0 ' + width + ' ' + height )
+        use( xlink:href=setting.iconSrc + 'sprite.svg#icon-' + iconName )
+    else
+      p.error=errorMessage

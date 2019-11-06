@@ -1,0 +1,50 @@
+// В этом файле должны быть стили для БЭМ-блока title, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+
+@import "../../libraries/variables";
+@import "../../libraries/mixins";
+
+//.title {
+//  $block-name: &; // #{$block-name}__element
+//
+//  margin: 0;
+//  text-transform: uppercase;
+//  font-weight: 500;
+//  font-size: 14px;
+//  color: #222328;
+//  letter-spacing: 0.5px;
+//
+//  &--white{
+//    color: $white;
+//  }
+//
+//  &--center{
+//    text-align: center;
+//  }
+//}
+
+
+.title {
+  max-width: 420px;
+  font-size: 22px;
+  font-weight: 300;
+  color: #222328;
+
+  &--center{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  @media (min-width: $screen-md) {
+    max-width: 600px;
+  }
+
+  @media (min-width: $screen-lg) {
+    max-width: 970px;
+    font-size: 30px;
+  }
+  @media (min-width: $screen-xl) {
+    font-size: 42px;
+  }
+}

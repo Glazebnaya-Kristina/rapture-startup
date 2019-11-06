@@ -1,0 +1,113 @@
+//- Главная страница
+
+extends ../../layouts/layout.pug
+
+
+block meta
+
+  //- Метаданные
+  -
+    var meta = {
+      title: "The Rapture Startup",
+      description: "Описание сайта",
+      siteURN: "index.html"
+    }
+
+  title=meta.title + " | " + setting.siteName
+  +meta( "description", meta.description )
+
+  //- Разметка Open Graph
+  +meta( "og:title", meta.title, false )
+  +meta( "og:description", meta.description, false )
+  +meta( "og:type", "website", false )
+  +meta( "og:url", meta.siteURL, false )
+  +meta( "og:locale", setting.lang + '_' + setting.lang.toUpperCase(), false )
+  +meta( "og:image", setting.imagesSrc + "poster.png", false )
+  +meta( "og:image:type", "image/png", false )
+  +meta( "og:image:width", "512", false )
+  +meta( "og:image:height", "512", false )
+  +meta( "og:site_name", setting.siteName, false )
+
+  //- Разметка Twitter Card
+  +meta( "twitter:card", "summary" )
+  +meta( "twitter:title", meta.title )
+  +meta( "twitter:description", meta.description )
+  +meta( "twitter:image", setting.imagesSrc + "poster.png" )
+  +meta( "twitter:site", setting.siteName )
+
+block prepend head
+  +link( "canonical", setting.siteURL + meta.siteURN )
+
+block append head
+
+block header
+  +wrapper()( class=innerClasses )
+    +wrapper()( class=topBarClasses )
+
+      //- Логотип
+      include ../../blocks/logo/logo.pug
+      +logo()( class=logoClasses ) The <em>Rapture</em> Startup
+
+      //- Навигация
+      //include ../../blocks/navigation/navigation.pug
+      //+navigation()( class=sectionName )
+      +wrapper( "nav" )(class= navigationClasses + " navigation" )
+        +list()( class=navigationMenuClasses + " navigation__menu list" )
+          +list-item()( class="navigation__menu-item" )
+            +href( "Features" )(href="#", class="navigation__menu-link href href--opacity" )
+          +list-item()( class="navigation__menu-item" )
+            +href( "Pricing" )(href="#", class="navigation__menu-link href href--opacity" )
+          +list-item()( class="navigation__menu-item" )
+            +href( "Blog" )(href="#", class="navigation__menu-link href href--opacity" )
+          +list-item()( class="navigation__menu-item" )
+            +href( "More" )(href="#", class="navigation__menu-link href href--opacity" )
+        +wrapper( "p" )(class=authorizationClasses + " authorization")
+          +button( "Login", "small, border" )
+          +button( "Get Started", "white, small" )( class=getStartedClasses )
+    +section()( class=sectionClasses )
+      +element( "Every Great Business  Starts with an Idea", "h1" )( class=titleClasses )
+      +button( "Start Your Absolutely Free trial", "white, big" )( class=buttonStartFreeClasses )
+      +href( "Already have a Rapture store?" )( href="/", class=linkClasses + " href href--opacity" )
+      +text( "The Rapture Startup is the one platform you need to build the business you’ve always dreamed of" )( class=descriptionClasses )
+      +icon( "scroll", 30, 40 )( class=iconScroll )
+      //svg( width="30", height="40", viewBox="0 0 30 40" )( class=iconScrollClasses )
+      //  use( xlink:href=setting.iconSrc + 'sprite.svg#icon-scroll' )
+      +wrapper()( class=wrapperIconClasses )
+        +scroll()
+
+
+
+
+block main
+
+
+  //- Components
+  include ../../sections/сomponents/сomponents.pug
+
+
+  +section()( class=sectionName )
+    +element( "сomponents", "b" )( class=attributes.paragraph.class + " paragraph paragraph--center" )
+    +title( "Save money with canhrefully crafted components to present your business.", +
+    2 )( class=attributes.title.class + " title title--center"  )
+    +list()( class=attributes.list.class + " list" )
+      +list-item()( class=attributes.listItem.class )
+        +image( "сomponents-img1.jpg", false, false, "Картинка для первой карты" )( class=attributes.images.class )
+        +wrapper( false, true )( class=attributes.wrapper.class )
+          +title( "Get your free UI samples", 3)( class=attributes.itemTitle.class )
+          +text( "Sign up for Craftwork to get your free UI samples. No credit card required. Cancel any + " +
+          "time.")( class=attributes.text.class + " text text--center" )
+          +button( "Sign Up now for free Sample", "big, green" )( class=attributes.button.class )
+      +list-item()( class=attributes.listItem.class )
+        +image( "сomponents-img1.jpg", "455", "290", "Картинка для первой карты" )( class=attributes.images.class )
+        +wrapper( false, true )( class=attributes.wrapper.class )
+          +title( "Order your copy of Rapture", 3)( class=attributes.itemTitle.class )
+          +text( "Start building your site immediately with any of our 20 beautifully designed and professional +" +
+          " templates." )( class=attributes.text.class + " text text--center" )
+          +button( "Order your Copy today", "link" )( class=attributes.buttonOrder.class )
+
+
+block footer
+
+block prepend head
+
+block append head

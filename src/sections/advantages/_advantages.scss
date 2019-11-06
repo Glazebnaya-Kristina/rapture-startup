@@ -1,0 +1,57 @@
+// В этом файле должны быть стили для БЭМ-блока advantages, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+
+@import "../../libraries/variables";
+@import "../../libraries/mixins";
+
+.advantages {
+  @include row( xs, 1 );
+  padding-top: 70px;
+  padding-bottom: 70px;
+  position: relative;
+
+  &--blue {
+    background-color: #ECF2F9;
+
+    &::before {
+      @include pseudo;
+      top: -4px;
+      left: calc(50% - 25px);
+      border: 30px solid transparent;
+      border-right: 30px solid black;
+      transform: rotate(-90deg);
+      width: 0;
+      height: 0;
+    }
+  }
+
+  &__title {
+    @include hide-text;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    margin-bottom: 30px;
+    &:last-child
+    {
+      margin-bottom: 0;
+    }
+  }
+
+  &__subtitle {
+    font-size: 18px;
+    margin: 0;
+    svg {
+      margin-right: 13px;
+    }
+  }
+
+  &__text {
+    margin-top: 8px;
+  }
+}

@@ -1,0 +1,54 @@
+//- Все примеси в этом файле должны начинаться c имени блока ( сomponents )
+
+-
+  var sectionName = 'сomponents'
+
+  var attributes = {
+    title: {
+      class: sectionName + "__title",
+      mods: "",
+    },
+    paragraph: {
+      class: sectionName + "__paragraph",
+      mods: "",
+    },
+    list: {
+      class: sectionName + '__list',
+      mods: "",
+    },
+    listItem: {
+      class: sectionName + '__item',
+      mods: "",
+    },
+    itemTitle: {
+      class:  sectionName + '__item-title',
+      mods: "",
+    },
+    text: {
+      class: sectionName + '__text',
+      mods: "",
+    },
+    button: {
+      class: sectionName + '__button',
+      mods: "",
+    },
+    buttonOrder: {
+      class: sectionName + '__button-order',
+      mods: "",
+    },
+    wrapper: {
+      class: sectionName + '__wrapper',
+      mods: "",
+    },
+    images: {
+      class: sectionName + '__img',
+      mods: "",
+    },
+  }
+
+  var titleClasses = attributes.title.class + ( typeof attributes.title.mods !== 'undefined' && attributes.title.mods !== '' ? attributes.title.mods : '' )
+  var listClasses = attributes.list.class + ( typeof attributes.list.mods !== 'undefined' && attributes.list.mods !== '' ? attributes.list.mods : '' )
+  var listItemClasses = attributes.listItem.class + ( typeof attributes.listItem.mods !== 'undefined' && attributes.listItem.mods !== '' ? attributes.listItem.mods : '' )
+  var subTitleClasses = attributes.paragraph.class + ( typeof attributes.paragraph.mods !== 'undefined' && attributes.paragraph.mods !== '' ? attributes.paragraph.mods : '' )
+  var textClasses = attributes.text.class + ( typeof attributes.text.mods !== 'undefined' && attributes.text.mods !== '' ? attributes.text.mods : '' )
+  // var imageClasses = attributes.image.class + ( typeof attributes.image.mods !== 'undefined' && attributes.image.mods !== '' ? attributes.image.mods : '' )

@@ -1,0 +1,44 @@
+//- Все примеси в этом файле должны начинаться c имени блока ( title )
+
+mixin title( text, titleLevel, tagName, mods )
+
+  //- Принимает:
+      text {string} - текст заголовка
+      titleLevel {integer} - уровень заголовка (h1-h6)
+      tagName {string} - тег
+      mods {string} - список модификаторов
+
+  //- Вызов:
+      +title( "Заголовок", 3 ) - указан уровень, это h
+      +title( "Заголовок", false, "strong" ) - уровень false, это tag
+
+  -
+    var className = ''; // title - класс конструктора, по умолчанию указана пустая строка
+    var titleLevel = 'h' + titleLevel;
+    var errorMessage = "Не указан уровень заголовка или тег псевдозаголовка";
+
+    // список модификаторов
+    var allMods = '';
+    if( typeof mods !== 'undefined' && mods ) {
+      var modsList = mods.split( ',' );
+      for ( var i = 0; i < modsList.length; i++ ) {
+        allMods = allMods + ' ' + className + '--' + modsList[i].trim();
+      }
+    }
+
+  //- если уаказан titleLevel
+  if ( typeof titleLevel !== 'undefined' && titleLevel && titleLevel.replace('h', '') <= 6 )
+    #{titleLevel}( class=className + allMods )&attributes( attributes )
+      block
+      != text
+
+  //- иначе если уровень false и указан tagName
+  else if ( titleLevel === false && typeof tagName !== 'undefined' && tagName !== '' && tagName  )
+    #{tagName}( class=className + allMods )&attributes( attributes )
+      block
+      != text
+
+  //- иначе ошибка
+  else
+    p.error=errorMessage
+

@@ -1,0 +1,89 @@
+// В этом файле должны быть стили для БЭМ-блока button, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+
+@import "../../libraries/variables";
+@import "../../libraries/mixins";
+
+.button {
+  $block-name:                &; // #{$block-name}__element
+
+  //display: inline-flex;
+  //align-items: center;
+  //justify-content: center;
+  display: block;
+  margin: 0;
+  font-family: inherit;
+  font-size: $font-size-btn;
+  font-weight: 500;
+  color: inherit;
+  line-height: $line-height;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  user-select: none;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  border-radius: $field-border-radius;
+  cursor: pointer;
+  transition-property: background-color, color, box-shadow;
+  transition-duration: $transition-time;
+
+  &--small{
+    padding: 10px 25px;
+  }
+
+  &--big{
+    padding: 15px 20px;
+    @media ( min-width: $screen-sm ){
+      padding: 16px 40px;
+    }
+  }
+
+  &--link{
+    text-decoration: underline;
+    &:hover,
+    &:focus{
+      color: #1ae938;
+    }
+  }
+
+
+  &--green{
+    background-color: #1ae938;
+    &:hover,
+    &:focus{
+      box-shadow: 0 13px 30px 1px rgba(26,233,56,.6);
+    }
+  }
+
+  &--white{
+    color: #222328;
+    background-color: $white;
+    &:hover,
+    &:focus{
+      background-color: rgba($white, .8);
+    }
+  }
+
+  &--border{
+    border: 1px solid rgba($white, .1);
+    &:hover,
+    &:focus{
+      background-color: rgba($white, .5);
+    }
+  }
+
+  &--disabled,
+  &:disabled
+  {
+    opacity: $opacity;
+    cursor: not-allowed;
+    @at-root a.btn--disabled
+    {
+      pointer-events: none;
+    }
+  }
+}

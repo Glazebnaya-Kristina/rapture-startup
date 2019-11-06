@@ -1,0 +1,35 @@
+//- Все примеси в этом файле должны начинаться c имени блока ( image )
+
+mixin image( imgName, width, height, alt, title, mods )
+
+  //- Принимает:
+      imgName  {string} - имя иконки
+      width    {integer} - ширина
+      height   {integer} - высота
+      alt      {string} - альтернативный текст
+      title    {string} - всплывающая подсказка
+      mods     {string} - всплывающая подсказка
+
+  //- Вызов:
+      +image( "phone", 200, 200, "Картинка", "Картинка", "big" )
+
+  -
+    var className = 'image'
+    var errorMessage = "Не указано изображение";
+
+    // список модификаторов
+    var allMods = '';
+    if(typeof mods !== 'undefined' && mods) {
+      var modsList = mods.split( ',' );
+      for ( var i = 0; i < modsList.length; i++ ) {
+        allMods = allMods + ' ' + className + '--' + modsList[i].trim();
+      }
+    }
+
+  //- если указано имя изображения
+  if ( typeof imgName !== 'undefined' && imgName !== '' && imgName )
+    img( class=className + allMods, src=setting.imagesSrc + imgName, width=width, height=height, alt=alt, title=title )
+
+  //- иначе ошибка
+  else
+    p.error=errorMessage

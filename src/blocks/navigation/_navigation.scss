@@ -1,0 +1,21 @@
+.navigation{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  &__menu{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__menu-item{
+    &:not(:first-child){
+      margin-left: 35px;
+    }
+  }
+
+  &__menu-link{
+    font-size: 16px;
+    font-weight: 300;
+  }
+}

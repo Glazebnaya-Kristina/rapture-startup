@@ -1,0 +1,150 @@
+// В этом файле должны быть стили для БЭМ-блока page-header, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+
+@import "../../libraries/variables";
+@import "../../libraries/mixins";
+
+.page-header {
+  $block-name: &; // #{$block-name}__element
+
+
+
+  padding-top: 30px;
+  padding-bottom: 50px;
+  color: $white;
+  background-image: url("#{$imagesDir}bg-header.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: #141414;
+
+  @media ( min-width: $screen-lg ){
+    padding-top: 70px;
+    padding-bottom: 90px;
+  }
+
+  @media ( min-height: 850px ){
+    height: 100vh;
+  }
+
+  &__inner{
+    @include row( xs, 1, equal );
+    @include row ( sm, 12 );
+    @include row ( md, 12 );
+    @include row ( lg, 12 );
+    @include row ( xl, 12 );
+    margin: 0 auto;
+  }
+
+  &__top-bar{
+    @include row( xs, 1, equal, 30px, false );
+    @include row( md, 6, equal, 30px, false );
+    @include row( lg, 12, equal, 30px, false );
+    @include row( xl, 12, 70px, 30px, false );
+    @include col( sm, 1, -1 );
+  }
+
+  &__logo{
+    text-align: center;
+  }
+
+  &__main{
+    @include col( sm, 1, -1 );
+    margin-top: 70px;
+    @media ( min-width: $screen-lg ){
+      margin-top: 135px;
+    }
+  }
+
+  &__title{
+    margin: 0;
+    font-weight: 400;
+    text-align: center;
+    @media ( min-width: $screen-lg ){
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 62px;
+      line-height: 70px;
+    }
+  }
+
+  &__navigation{
+    @include col( md, 2, -1 );
+    @include col( lg, 3, -1 );
+    @include col( xl, 4, -1 );
+    flex-direction: column;
+    margin-top: 20px;
+    @media ( min-width: $screen-md ){
+      margin-top: 5px;
+      margin-left: auto;
+    }
+    @media ( min-width: $screen-lg ){
+      flex-direction: row;
+      margin-top: 0;
+      margin-left: 0;
+    }
+  }
+
+  &__navigation-menu{
+
+  }
+
+  &__authorization{
+    margin-top: 20px;
+    @media ( min-width: $screen-md ){
+      margin-left: auto;
+    }
+    @media ( min-width: $screen-lg ){
+      margin-top: 0;
+    }
+  }
+
+  &__get-started{
+    margin-left: 20px;
+  }
+
+  &__start-free{
+    margin: 20px auto 0 auto;
+    @media ( min-width: $screen-lg ){
+      margin-top: 90px;
+    }
+  }
+
+  &__link{
+    margin-top: 20px;
+    text-align: center;
+    @media ( min-width: $screen-lg ){
+      margin-top: 30px;
+    }
+  }
+
+  &__description{
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 70px;
+    text-align: center;
+    @media ( min-width: $screen-lg ){
+      margin-top: 90px;
+    }
+  }
+
+  &__scroll{
+    display: block;
+    margin: 0 auto;
+    margin-top: 40px;
+    @media ( min-width: $screen-lg ){
+      margin-top: 60px;
+    }
+  }
+
+  &__wrapper-icon{
+    position: relative;
+    margin: 0 auto;
+    margin-top: 40px;
+    width: 22px;
+    height: 35px;
+    @media ( min-width: $screen-lg ){
+      margin-top: 60px;
+    }
+  }
+}
